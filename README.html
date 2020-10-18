@@ -1,0 +1,247 @@
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css">
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="welcome-to-map-codelab">Welcome to Map Codelab</h1>
+<h3 id="hi-there--this-codelab-will-show-you-have-to-implement-google-map-on-you-android-project.">Hi there , this codelab will show you have to implement Google map on you android project.</h3>
+<p><img src="https://lh4.googleusercontent.com/NL_RhzVpJXJ3WbyVZIaWHW0IdKGikft28jHoEPbaesjqhhRyeR1O3iR5B6t3A7sL5u_mq8WoA_eyXUYEa713=w1602-h979" alt="enter image description here"></p>
+<h3 id="so-lets-start">so lets start:</h3>
+<h2 id="clone-this-repositry-to-your-android-studio">Clone this repositry to your android studio</h2>
+<h3 id="follow-the-picures-below">Follow the picures below</h3>
+<p><img src="https://lh4.googleusercontent.com/4N7Y5snD4ZT6Rh8PF1WSpozoSDx9m0jhDJ1-PIf1yh-PEw-1Ho5Jq8-GF146hEM8bmv_XcxzeXC44Ub2VLVt=w1602-h979" alt="enter image description here"><br>
+Url :<br>
+<img src="https://lh6.googleusercontent.com/jtBIgWsPlQ98SefLXVUiGfQHkYmbK78PQ6C2AkkbmlU7rZcCH6tTov8dzDuYv3boNP64Q1c-fFfq3BikdEqC=w951-h979" alt="enter image description here"></p>
+<h1 id="dependency">Dependency</h1>
+<p>we are going to use google map dependency:</p>
+<pre><code>implementation 'com.google.android.gms:play-services-maps:17.0.0'
+</code></pre>
+<h1 id="codelab-start--🤖">CodeLab Start  🤖</h1>
+<p>Let’s start 🤖</p>
+<h2 id="mapview">MapView</h2>
+<p>Activity Name : MapViewActivity.kt<br>
+Layout Name: activity_map_view_activity.xml<br>
+Goal : Show Map on your emulator.</p>
+<h3 id="xml">XML</h3>
+<p><strong>TODO MapView.1</strong><br>
+Go to res -&gt; layput -&gt; activity_map_view_activity.xml and add the following code.</p>
+<pre><code>&lt;com.google.android.gms.maps.MapView  
+  android:id="@+id/mapViewXML"  
+  android:layout_width="match_parent"  
+  android:layout_height="match_parent"  /&gt;
+</code></pre>
+<h3 id="code">Code</h3>
+<p><strong>TODO MapView.2</strong> -&gt; Implement OnMapReady on the class definition:</p>
+<pre><code>class MapViewActivity : AppCompatActivity() ,OnMapReadyCallback{}
+</code></pre>
+<p><strong>TODO MapView.3</strong> -&gt; Add the variables and the companion object :</p>
+<pre><code> companion object{  
+    private const val MAPVIEW_BUNDLE_KEY = "MapViewBundleKKey"
+    }
+    private lateinit var mapView: MapView
+</code></pre>
+<p>.<br>
+<strong>TODO MapView.4</strong> -&gt; Complete OnCreate function.</p>
+<pre><code> override fun onCreate(savedInstanceState: Bundle?) {  
+    super.onCreate(savedInstanceState)  
+    setContentView(R.layout.activity_map_view)  
+
+  val mapViewBundle = savedInstanceState?.getBundle(MAPVIEW_BUNDLE_KEY)  
+
+  mapView = mapViewXML  
+    mapView.onCreate(mapViewBundle)  
+    mapView.getMapAsync(this)  
+}
+</code></pre>
+<p><strong>TODO MapView.5</strong> -&gt; Complete onSaveInstanceState function.</p>
+<pre><code> override fun onSaveInstanceState(outState: Bundle) {  
+    super.onSaveInstanceState(outState)  
+    val mapViewBundle = outState.getBundle(MAPVIEW_BUNDLE_KEY)?: Bundle().apply {  
+  putBundle(MAPVIEW_BUNDLE_KEY,this)  
+    }  
+  mapView.onSaveInstanceState(mapViewBundle)  
+}
+</code></pre>
+<p><strong>TODO MapView.6</strong> -&gt; Complete Override onMapReady function.</p>
+<pre><code> override fun onMapReady(map: GoogleMap?) {  
+  
+}
+</code></pre>
+<p><strong>TODO MapView.7</strong> -&gt; Complete the life cycle functions.</p>
+<pre><code>override fun onStart() {  
+    super.onStart()  
+    mapView.onResume()  
+}  
+  
+override fun onResume() {  
+    super.onResume()  
+    mapView.onResume()  
+}  
+  
+override fun onStop() {  
+    super.onStop()  
+    mapView.onStop()  
+}  
+  
+override fun onPause() {  
+    super.onPause()  
+    mapView.onStop()  
+}  
+  
+override fun onDestroy() {  
+    super.onDestroy()  
+    mapView.onDestroy()  
+}
+</code></pre>
+<p>Finally <strong>Run your project!</strong>.</p>
+<h2 id="support-mapfragment">Support MapFragment</h2>
+<p>Activity Name : SupportMapFragmentActivity.kt<br>
+Layout Name: activity_support_map_fragment.xml<br>
+Goal : Show Map on your emulator.</p>
+<h3 id="xml-1">XML</h3>
+<p><strong>TODO SupportMapFragment.1</strong><br>
+Go to res -&gt; layput -&gt; activity_support_map_fragment.xml and add the following code.</p>
+<pre><code>&lt;fragment  
+  android:layout_width="match_parent"  
+  android:layout_height="match_parent"  
+  android:name="com.google.android.gms.maps.SupportMapFragment"  
+  android:id="@+id/MapFragmentXML"  
+  /&gt;
+</code></pre>
+<h3 id="code-1">Code</h3>
+<p><strong>TODO SupportMapFragment.2</strong> -&gt; Implement OnMapReady on the class definition:</p>
+<pre><code>class SupportMapFragmentActivity : AppCompatActivity() , OnMapReadyCallback {}
+</code></pre>
+<p><strong>TODO SupportMapFragment.3 Complete OnCreate</strong></p>
+<pre><code>override fun onCreate(savedInstanceState: Bundle?) {  
+    super.onCreate(savedInstanceState)  
+    setContentView(R.layout.activity_map_fragment)  
+  
+    val mapFragment = supportFragmentManager  
+  .findFragmentById(R.id.MapFragmentXML) as SupportMapFragment  
+  
+    mapFragment.getMapAsync(this)  
+  
+}
+</code></pre>
+<p><strong>TODO SupportMapFragment.4</strong> -&gt; Complete Override onMapReady function</p>
+<pre><code>    override fun onMapReady(map : GoogleMap?) {  
+
+    }
+</code></pre>
+<h2 id="marker">Marker</h2>
+<p>Activity Name : Markers.kt<br>
+Layout Name: activity_markers.xml<br>
+Goal : Place a marker on the Map.</p>
+<h3 id="code-2">Code</h3>
+<p><strong>TODO Marker.1</strong> -&gt; Setup a position  :</p>
+<pre><code>var position = LatLng(lat,lng)  //24.788571, 46.805764
+</code></pre>
+<p><strong>TODO Marker.2</strong> -&gt; Create variable to hold the marker  :</p>
+<pre><code>val marker = MarkerOptions().position(position)  
+</code></pre>
+<p><strong>TODO Marker.3</strong> -&gt; Add the marker to the map  :</p>
+<pre><code>map!!.addMarker(marker)
+</code></pre>
+<p><strong>Short Way</strong></p>
+<pre><code>map.addMarker
+    MarkerOptions()
+	    .position(LatLng(24.788571, 46.805764)
+	    )
+    )
+</code></pre>
+<h2 id="polyline">Polyline</h2>
+<p>Activity Name : Polylines.kt<br>
+Layout Name: activity_polyline.xml<br>
+Goal : Draw a polyline on the Map.### Code</p>
+<p><strong>TODO Polyline.1</strong> -&gt; specify your points  :</p>
+<pre><code>var point1 = LatLng(24.788571,46.805764)  //24.788571, 46.805764  
+var point2 = LatLng(24.788571,46.805764)  //24.788571, 46.805764  
+</code></pre>
+<p><strong>TODO Polyline.2</strong> -&gt;  Add your points to a Mutable List of LatLng   :</p>
+<pre><code>var points = mutableListOf&lt;LatLng&gt;()  
+points.add(point1)  
+points.add(point2)     
+</code></pre>
+<p><strong>TODO Polyline.3</strong> -&gt; Create Polyline and specify the color  :</p>
+<pre><code>var polyline = PolylineOptions().addAll(points).color(Color.BLUE)  
+</code></pre>
+<p><strong>TODO Polyline.4</strong> -&gt; Add the Polyline to the map  :</p>
+<pre><code>map!!.addPolyline(polyline)
+</code></pre>
+<p><strong>Short Way</strong></p>
+<pre><code>map!!.addPolyline(
+	    PolylineOptions()
+		    .add(LatLng(1.2,2.3),LatLng(2.0,30.0))
+	    .	color(Color.BLUE)
+    )
+</code></pre>
+<h2 id="polygon">Polygon</h2>
+<p>Activity Name : Polygons.kt<br>
+Layout Name: activity_polygon.xml<br>
+Goal : Draw a polygon on the Map.</p>
+<h3 id="code-3">Code</h3>
+<p><strong>TODO Polygon.1</strong> -&gt; specify your 3 or more points    :</p>
+<pre><code>var point1 = LatLng(24.788571,46.805764)  //24.788571, 46.805764  
+var point2 = LatLng(24.788571,46.805764)  //24.788571, 46.805764  
+var point3 = LatLng(24.788571,46.805764)  //24.788571, 46.805764    
+</code></pre>
+<p><strong>TODO Polygon.2</strong> -&gt;  Add your points to a Mutable List of LatLng   :</p>
+<pre><code>var points = mutableListOf&lt;LatLng&gt;()  
+points.add(point1)  
+points.add(point2)  
+points.add(point3)     
+</code></pre>
+<p><strong>TODO Polygon.3</strong> -&gt; Create Polygon and specify the fill color and stroke color   :</p>
+<pre><code>var polygon = PolygonOptions()  
+			        .addAll(points)  
+			        .fillColor(Color.GRAY)  
+			        .strokeColor(Color.BLUE)  
+</code></pre>
+<p><strong>TODO Polygon.4</strong> -&gt; Add the Polygon to the map  :</p>
+<pre><code>map!!.addPolygon(polygon)
+</code></pre>
+<p><strong>Short Way</strong></p>
+<pre><code>map!!.addPolygon(
+		 PolygonOptions()
+			 .add(LatLng(1.0,2.0),LatLng(1.0,2.0),LatLng(1.0,2.0))
+			 .fillColor(Color.GRAY)
+			 .strokeColor(Color.BLUE)
+	 )
+</code></pre>
+<h2 id="circle">Circle</h2>
+<p>Activity Name : Circles.kt<br>
+Layout Name: activity_circles.xml<br>
+Goal : Draw a polygon on the Map.</p>
+<h3 id="code-4">Code</h3>
+<p><strong>TODO Circle.1</strong> -&gt; specify the center    :</p>
+<pre><code>var center = LatLng(1.1,2.2)  
+</code></pre>
+<p><strong>TODO Circle.2</strong> -&gt; specify the radius   :</p>
+<pre><code>var radius = 50.0  
+</code></pre>
+<p><strong>TODO Circle.3</strong> -&gt; Create Circle and specify the fill color and stroke colo   :</p>
+<pre><code>var circle = CircleOptions().center(center).radius(radius).fillColor(Color.BLUE)  
+</code></pre>
+<p><strong>TODO Circle.4</strong> -&gt; Add the Polygon to the map     :</p>
+<pre><code>map!!.addCircle(circle)
+</code></pre>
+<p><strong>Short Way</strong></p>
+<pre><code> map!!.addCircle(
+	     CircleOptions()
+		     .center(LatLng(1.1,2.2))
+		     .radius(50.0)
+		     .fillColor(Color.BLUE)
+     )
+</code></pre>
+<h1 id="congratulations-🎊">congratulations 🎊</h1>
+<h4 id="thank-you-for-completeing-the-this-codelab🥳.">Thank you for completeing the this codelab🥳.</h4>
+<h4 id="if-you-have-any-questions-please-let-me-know-🧙">if you have any questions please let me know 🧙</h4>
+</div>
+
+
+
+</body></html>
