@@ -19,10 +19,10 @@ class Markers : AppCompatActivity() ,OnMapReadyCallback {
     }
 
     override fun onMapReady(p0: GoogleMap?) {
-        //TODO Marker.1 Setup a position
+        //TODO: 3.1 Setup a position
 
-        //TODO Marker.2 Create variable to hold the marker ID
+        //TODO: 3.2 Create variable to hold the marker ID
 
-        //TODO Marker.3 Add the marker to the map
+        //TODO: 3.3 Add the marker to the map
     }
 }

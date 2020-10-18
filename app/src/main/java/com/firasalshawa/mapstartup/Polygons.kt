@@ -21,13 +21,13 @@ class Polygons : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map: GoogleMap?) {
-        //TODO Polygon.1 -> specify your 3 or more points
+        //TODO: 5.1 -> specify your 3 or more points
 
-        //TODO Polygon.2 -> Add your points to a Mutable List of LatLng
+        //TODO: 5.2 -> Add your points to a Mutable List of LatLng
 
-        //TODO Polygon.3 -> Create Polygon and specify the fill color and stroke color
+        //TODO: 5.3 -> Create Polygon and specify the fill color and stroke color
 
-        //TODO Polygon.4 -> Add the Polygon to the map
+        //TODO: 5.4 -> Add the Polygon to the map
     }
 }
 

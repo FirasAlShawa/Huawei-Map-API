@@ -14,17 +14,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Circles"></activity>
-        <activity android:name=".Polygons" />
-        <activity android:name=".Polylines" />
-        <activity android:name=".Markers" />
-        <activity android:name=".SupportMapFragmentActivity" />
-        <activity android:name=".MapViewActivity">
+        <activity android:name=".Circles">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Polygons" />
+        <activity android:name=".Polylines" />
+        <activity android:name=".Markers" />
+        <activity android:name=".SupportMapFragmentActivity" />
+        <activity android:name=".MapViewActivity">
+
         </activity>
 
         <meta-data

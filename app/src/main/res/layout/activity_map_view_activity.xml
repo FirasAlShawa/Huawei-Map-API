@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MapViewActivity">
-
+    <!--//TODO: 1.1 Add MapView to this activity XML-->
 
 </LinearLayout>

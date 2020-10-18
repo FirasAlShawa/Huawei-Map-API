@@ -6,12 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SupportMapFragmentActivity">
+<!--//TODO: 2.1 Add fragment  to this activity XML-->
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:id="@+id/MapFragmentMarkerXML"
-        />
 
 </LinearLayout>

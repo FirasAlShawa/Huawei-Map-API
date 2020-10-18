@@ -24,12 +24,12 @@ class Polylines : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map: GoogleMap?) {
-            //TODO Polyline.1 -> specify your point
+            //TODO: 4.1 -> specify your point
 
-            //TODO Polyline.2 -> Add your points to a Mutable List of LatLng
+            //TODO: 4.2 -> Add your points to a Mutable List of LatLng
 
-            //TODO Polyline.3 -> Create Polyline and specify the color
+            //TODO: 4.3 -> Create Polyline and specify the color
 
-            //TODO Polyline.4 -> Add the Polyline to the map
+            //TODO: 4.4 -> Add the Polyline to the map
     }
 }
