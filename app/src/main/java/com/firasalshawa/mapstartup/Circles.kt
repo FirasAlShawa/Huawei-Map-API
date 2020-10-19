@@ -4,6 +4,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -12,7 +13,7 @@ import com.google.android.gms.maps.model.Circle
 import com.google.android.gms.maps.model.CircleOptions
 import com.google.android.gms.maps.model.LatLng
 
-class Circles : AppCompatActivity(), OnMapReadyCallback {
+class Circles : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnCircleClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_circles)
@@ -24,13 +25,19 @@ class Circles : AppCompatActivity(), OnMapReadyCallback {
     }
 
     override fun onMapReady(map : GoogleMap?) {
-        //TODO: 6.1 -> specify the center
 
-        //TODO: 6.2 -> specify the radius
+        map!!.addCircle(
+            CircleOptions()
+                .center(LatLng(24.788571, 46.805764))
+                .radius(250.0)
+                .fillColor(Color.YELLOW)
+        )
 
-        //TODO: 6.3 -> Create Circle and specify the fill color and stroke color
+        map!!.setOnCircleClickListener(this)
 
-        //TODO: 6.4 -> Add the Polygon to the map
+    }
 
+    override fun onCircleClick(circle: Circle?) {
+        Toast.makeText(this,"hi",Toast.LENGTH_SHORT).show()
     }
 }
